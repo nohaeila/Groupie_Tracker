@@ -1,1 +1,4 @@
-Projet GROUPIE-TRACKER
+Projet GROUPIE-TRACKER par :
+-Dylan Hebrard 
+-LAGHALID Nohaeila
+-LUIZET Louis
