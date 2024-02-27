@@ -5,6 +5,22 @@
     <title>Title</title>
 </head>
 <body>
+    <h1>Information sur l'artiste</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Date</th>
+            <th>Image</th>
+        </tr>
+        <tr>
+            <td>{{.ID}}</td>
+            <td>{{.Name}}</td>
+            <td>{{.Date}}</td>
+            <td><img src="{{.Image}}" alt="{{.Name}}"></td>
+        </tr>
+    </table>
+    <a href="/liste">Retour à la liste</a>
 
 </body>
 </html>
