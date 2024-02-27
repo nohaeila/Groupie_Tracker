@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des artistes</title>
+</head>
+<body>
+    <h1>Liste des artistes</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Date</th>
+            <th>Image</th>
+        </tr>
+        {{range .}}
+        <tr>
+            <td>{{.ID}}</td>
+            <td>{{.Name}}</td>
+            <td>{{.Date}}</td>
+            <td><img src="{{.Image}}" alt="{{.Name}}"></td>
+        </tr>
+        {{end}}
+    </table>
+</body>
+</html>
