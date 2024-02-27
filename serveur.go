@@ -78,7 +78,3 @@ func getArtists() ([]Artist, error) {
 	}
 	return artists, nil
 }
-
-func getRelations() {
-
-}
