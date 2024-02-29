@@ -11,6 +11,9 @@ type Artist struct {
 	Name  string `json:"name"`
 	Date  int    `json:"creationDate"`
 	Image string `json:"image"`
+	Membre []string `json:"members"`
+	Albums string `json:"firstAlbum"`
+	
 }
 
 func GetArtists() ([]Artist, error) {
