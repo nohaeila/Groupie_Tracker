@@ -1,0 +1,56 @@
+/* Définition du style du corps de la page */
+body {
+    font-family: Arial, sans-serif; /* Police de caractères par défaut */
+    background-color: #787373; /* Couleur de fond */
+    margin: 0; /* Supprime les marges par défaut */
+    padding: 0; /* Supprime les bourrages par défaut */
+}
+
+/* Style du titre de niveau 1 */
+h1 {
+    text-align: center; /* Alignement du texte au centre */
+    color: #0e0606; /* Couleur du texte */
+}
+
+/* Style de la table */
+table {
+    margin: 20px auto; /* Marge extérieure et alignement horizontal automatique */
+    border-collapse: collapse; /* Fusionner les bordures de la table */
+    width: 80%; /* Largeur de la table */
+}
+
+/* Style des cellules d'en-tête de la table */
+th {
+    background-color: #ddd; /* Couleur de fond */
+    color: #333; /* Couleur du texte */
+    font-weight: bold; /* Police en gras */
+    padding: 10px; /* Rembourrage intérieur */
+    text-align: left; /* Alignement du texte à gauche */
+}
+
+/* Style des cellules de la table */
+td {
+    border: 1px solid #353333; /* Bordure */
+    padding: 10px; /* Rembourrage intérieur */
+}
+
+/* Style de l'image dans la cellule de la table */
+td img {
+    max-width: 100px; /* Largeur maximale de l'image */
+    height: auto; /* Hauteur automatique pour conserver les proportions */
+    display: block; /* Affichage en bloc */
+    margin: 0 auto; /* Alignement horizontal automatique */
+}
+
+/* Style du lien autour de l'image */
+td a {
+    display: block; /* Affichage en bloc */
+    text-align: center; /* Alignement du texte au centre */
+    color: #007bff; /* Couleur du texte */
+    text-decoration: none; /* Suppression du soulignement du lien */
+}
+
+/* Style du lien au survol */
+td a:hover {
+    text-decoration: underline; /* Soulignement du lien au survol */
+}
