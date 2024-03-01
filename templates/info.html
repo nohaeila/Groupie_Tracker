@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/info.css">
-    <title>information sur l'artiste'</title>
+    <title>info</title>
 </head>
-
 <body>
-    <div class="container">
-        <img src="{{.Image}}" alt="{{.Name}}">
-        <h1>Information sur l'artiste</h1>
-        <p><strong>Nom:</strong> {{.Name}}</p>
-        <p><strong>Date:</strong> {{.Date}}</p>
+    <div class="image-container">
+            <img src="{{.Image}}" alt="{{.Name}}" class="background-image">
+            <div class="artist-name">
+                <p><strong>{{.Name}}</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="info-container">
+        <div class="artist-info"> 
+            <p><strong>Date:</strong> {{.Date}}</p>
+        </div>
         <a href="/liste">Retour à la liste</a>
     </div>
 </body>
 </html>
-
 
