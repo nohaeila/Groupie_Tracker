@@ -1,5 +1,3 @@
-// handlers.go
-
 package Handlers
 
 import (
@@ -46,5 +44,3 @@ func InfoHandler(w http.ResponseWriter, r *http.Request) {
         return
      }
 }
-
-

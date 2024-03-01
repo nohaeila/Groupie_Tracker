@@ -3,25 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/liste.css">
     <title>Liste des artistes</title>
 </head>
 <body>
+    <div class="navbar">
+        <div class="nav-left">
+            <a onclick="window.location.href='/'">Accueil</a>
+        </div>
+        <div class="nav-right">
+            <label for="searchToggle" class="round-button"><img src="../assets/images/loupe.png" alt="Rechercher"></label>
+            <input type="checkbox" id="searchToggle" class="search-toggle">
+            <input type="text" name="query" class="search-input" placeholder="Rechercher...">
+        </div>
+    </div>
+
     <h1>Liste des artistes</h1>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Nom</th>
-            <th>Date</th>
-            <th>Image</th>
-        </tr>
+    <div class="artistes-container">
         {{range .}}
-        <tr>
-            <td>{{.ID}}</td>
-            <td>{{.Name}}</td>
-            <td>{{.Date}}</td>
-            <td><a href="/info?id={{.ID}}"><img src="{{.Image}}" alt="{{.Name}}"></a></td>
-        </tr>
+        <div class="artiste">
+            <div class="image-container">
+                <td><a href="/info?id={{.ID}}"><img src="{{.Image}}" alt="{{.Name}}"></a></td>
+            </div>
+            <div class="info">
+                <h2>{{.Name}}</h2>
+                <p>{{.Date}}</p>
+            </div>
+        </div>
         {{end}}
-    </table>
+    </div>
 </body>
 </html>
