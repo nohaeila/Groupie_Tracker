@@ -4,30 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/info.css">
-
-    <title>info</title>
+    <title>Information sur l'artiste</title>
 </head>
 
 <body>
-    <h1>Information sur l'artiste</h1>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Nom</th>
-            <th>Date</th>
-            <th>Image</th>
-        </tr>
-        <tr>
-            <td>{{.ID}}</td>
-            <td>{{.Name}}</td>
-            <td>{{.Date}}</td>
-            <td><img src="{{.Image}}" alt="{{.Name}}"></td>
-            <td>{{.Membre}}</td>
-            <td>{{.Albums}}</td>
-
-        </tr>
-    </table>
-    <a href="/liste">Retour à la liste</a>
-
+    <div class="container">
+        <div class="header">
+            <div class="info">
+                <h1>{{.Name}}</h1>
+                <p>{{.Date}}</p>
+            </div>
+            <img src="{{.Image}}" alt="{{.Name}}">
+        </div>
+        <hr> <!-- Placer la barre horizontale ici -->
+    </div>
+    <div class="artisite">
+        <div class="titre">
+            <h1>Information sur le groupe ou sur l'artisite</h1>
+            <hr> 
+        </div>
+        <div class="membres">
+            <h2>Membre du groupe :</h2>
+            <ul>
+                {{range .Membre}}
+                <li>{{.}}</li>
+                {{end}}
+            </ul>
+        </div>
+        <h2>Date de sortie de leurs premier Albums:</h2>
+        <h2>{{.Albums}}</h2>
+    </div>
+    <div class="center">
+        <a href="/liste">Retour à la liste</a>
+    </div>
 </body>
 </html>
