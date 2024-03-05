@@ -12,9 +12,11 @@
             <a onclick="window.location.href='/'">Accueil</a>
         </div>
         <div class="nav-right">
-            <label for="searchToggle" class="round-button"><img src="../assets/images/loupe.png" alt="Rechercher"></label>
-            <input type="checkbox" id="searchToggle" class="search-toggle">
-            <input type="text" name="query" class="search-input" placeholder="Rechercher...">
+            <form action="/liste" method="GET">
+                <label for="searchToggle" class="round-button"><img src="../assets/images/loupe.png" alt="Rechercher"></label>
+                <input type="checkbox" id="searchToggle" class="search-toggle">
+                <input type="text" name="search" class="search-input" placeholder="Rechercher...">
+            </form>
         </div>
     </div>
 

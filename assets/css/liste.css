@@ -28,6 +28,12 @@
     align-items: center;
 }
 
+.nav-right form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 /* Style du bouton rond */
 .round-button {
     width: 50px;
@@ -40,9 +46,15 @@
 
 /* Style de l'image à l'intérieur du bouton */
 .round-button img {
-    width: 100%;
+    width: 45px; /* Nouvelle largeur de l'icône de recherche */
     height: auto;
     display: block;
+}
+
+
+.search-icon {
+    width: 40px; /* Largeur souhaitée de l'icône */
+    height: 40px; /* Hauteur souhaitée de l'icône */
 }
 
 /* Style du bouton loupe */
