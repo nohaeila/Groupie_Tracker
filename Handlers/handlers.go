@@ -5,9 +5,13 @@ import (
     "html/template"
     "net/http"
     "strings"
+    "sort"
+   
 )
 
+
 var templates = template.Must(template.ParseGlob("templates/*.html"))
+
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
     err := templates.ExecuteTemplate(w, "accueil.html", nil)
@@ -28,21 +32,42 @@ func ListeHandler(w http.ResponseWriter, r *http.Request) {
         return
     }
 
+    // Trier les artistes par ID de 1 à 52 par défaut
+    sort.Slice(artists, func(i, j int) bool {
+        return artists[i].ID < artists[j].ID
+    })
+
+    // Appliquer le filtre d'ordre si demandé
+    orderFilter := r.URL.Query().Get("order-filter")
+    switch orderFilter {
+    case "Alphabétique":
+        sort.Slice(artists, func(i, j int) bool {
+            return strings.ToLower(artists[i].Name) < strings.ToLower(artists[j].Name)
+        })
+    case "Date Croissante":
+        sort.Slice(artists, func(i, j int) bool {
+            return artists[i].Date < artists[j].Date
+        })
+    case "Date Décroissante":
+        sort.Slice(artists, func(i, j int) bool {
+            return artists[i].Date > artists[j].Date
+        })
+    }
+
     // Filtrer les artistes en fonction du terme de recherche
-    var filteredArtists []Getters.Artist
     if searchTerm != "" {
+        searchTerm = strings.ToLower(searchTerm)
+        var filteredArtists []Getters.Artist
         for _, artist := range artists {
-            if strings.Contains(strings.ToLower(artist.Name), strings.ToLower(searchTerm)) {
+            if strings.Contains(strings.ToLower(artist.Name), searchTerm) {
                 filteredArtists = append(filteredArtists, artist)
             }
         }
-    } else {
-        // Si aucun terme de recherche n'est spécifié, afficher tous les artistes
-        filteredArtists = artists
+        artists = filteredArtists
     }
 
     // Afficher la page avec les artistes filtrés
-    err = templates.ExecuteTemplate(w, "liste.html", filteredArtists)
+    err = templates.ExecuteTemplate(w, "liste.html", artists)
     if err != nil {
         http.Error(w, err.Error(), http.StatusInternalServerError)
         return
@@ -51,6 +76,7 @@ func ListeHandler(w http.ResponseWriter, r *http.Request) {
 
 func InfoHandler(w http.ResponseWriter, r *http.Request) {
     id := r.URL.Query().Get("id")
+
 
     artist, err := Getters.GetArtistByID(id)
     if err != nil {

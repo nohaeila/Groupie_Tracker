@@ -11,6 +11,40 @@
         <div class="nav-left">
             <a onclick="window.location.href='/'">Accueil</a>
         </div>
+        <div class="nav-center">
+            <details>
+                <summary><img src="../assets/images/mdi_filter.svg" alt="Logo"></summary>
+                <div id="filter-options" class="filter-options">
+                    <form id="filter-form" action="/liste" method="GET">
+                        <!-- Option Ordre -->
+                        <label for="order-filter">Ordre:</label>
+                        <select id="order-filter" name="order-filter">
+                            <option value="default" selected>Défaut</option>
+                            <option value="Alphabétique">Alphabétique</option>
+                            <option value="Date Croissante">Date Croissante</option>
+                            <option value="Date Décroissante">Date Décroissante</option>
+                        </select>
+                        <!-- Option Date -->
+                        <label for="date-filter">Date:</label>
+                        <select id="date-filter" name="date-filter">
+                            <option value="default" selected>Défaut</option>
+                            <option value="2010-2020">2010-2020</option>
+                            <option value="2000-2010">2000-2010</option>
+                            <option value="1990-2000">1990-2000</option>
+                            <option value="1980-1990">1980-1990</option>
+                            <option value="1970-1980">1970-1980</option>
+                            <option value="1960-1970">1960-1970</option>
+                            <option value="1950-1960">1950-1960</option>
+                        </select>
+                        <!-- Boutons Sauvegarder et Réinitialiser -->
+                        <div class="button-container">
+                            <button type="submit" id="save-button" name="action" value="save">Sauvegarder</button>
+                            <button type="submit" id="reset-button" name="action" value="reset">Réinitialiser</button>
+                        </div>
+                    </form>
+                </div>
+            </details>
+        </div>
         <div class="nav-right">
             <form action="/liste" method="GET">
                 <label for="searchToggle" class="round-button"><img src="../assets/images/loupe.png" alt="Rechercher"></label>
