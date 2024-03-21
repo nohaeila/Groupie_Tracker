@@ -5,7 +5,7 @@ import (
     "html/template"
     "net/http"
     "strings"
-    "sort"
+   
    
 )
 
@@ -23,35 +23,13 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 
 func ListeHandler(w http.ResponseWriter, r *http.Request) {
     // Récupérer le terme de recherche de la requête
-    searchTerm := r.URL.Query().Get("search")
+    searchTerm := r.URL.Query().Get("search-bar")
 
     // Récupérer tous les artistes
     artists, err := Getters.GetArtists()
     if err != nil {
         http.Error(w, err.Error(), http.StatusInternalServerError)
         return
-    }
-
-    // Trier les artistes par ID de 1 à 52 par défaut
-    sort.Slice(artists, func(i, j int) bool {
-        return artists[i].ID < artists[j].ID
-    })
-
-    // Appliquer le filtre d'ordre si demandé
-    orderFilter := r.URL.Query().Get("order-filter")
-    switch orderFilter {
-    case "Alphabétique":
-        sort.Slice(artists, func(i, j int) bool {
-            return strings.ToLower(artists[i].Name) < strings.ToLower(artists[j].Name)
-        })
-    case "Date Croissante":
-        sort.Slice(artists, func(i, j int) bool {
-            return artists[i].Date < artists[j].Date
-        })
-    case "Date Décroissante":
-        sort.Slice(artists, func(i, j int) bool {
-            return artists[i].Date > artists[j].Date
-        })
     }
 
     // Filtrer les artistes en fonction du terme de recherche

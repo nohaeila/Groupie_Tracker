@@ -46,18 +46,16 @@
             </details>
         </div>
         <div class="nav-right">
-            <form action="/liste" method="GET">
-                <label for="searchToggle" class="round-button"><img src="../assets/images/loupe.png" alt="Rechercher"></label>
-                <input type="checkbox" id="searchToggle" class="search-toggle">
-                <input type="text" name="search" class="search-input" placeholder="Rechercher...">
-            </form>
+            <label for="searchToggle" class="round-button"><img src="../assets/images/loupe.png" alt="Rechercher"></label>
+            <input type="checkbox" id="searchToggle" class="search-toggle">
+            <input type="text" name="search" class="search-input" id="search-bar"  placeholder="Rechercher..." onkeyup="searchArtist()">
         </div>
     </div>
 
     <h1>Liste des artistes</h1>
     <div class="artistes-container">
         {{range .}}
-        <div class="artiste">
+        <div class="artiste" data-artist="{{.Name}}">
             <div class="image-container">
                 <td><a href="/info?id={{.ID}}"><img src="{{.Image}}" alt="{{.Name}}"></a></td>
             </div>
@@ -69,4 +67,20 @@
         {{end}}
     </div>
 </body>
+<script>
+    function searchArtist() {
+        var input = document.getElementById('search-bar').value.toLowerCase();
+        var artistes = document.querySelectorAll('.artiste');
+
+        artistes.forEach(function (artiste) {
+            var artistName = artiste.getAttribute('data-artist').toLowerCase();
+            if (artistName.includes(input)) {
+                artiste.style.display = '';
+            } else {
+                artiste.style.display = 'none';
+            }
+        });
+    }
+</script>
+ 
 </html>

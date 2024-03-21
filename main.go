@@ -16,6 +16,10 @@ func main() {
 	fs := http.FileServer(http.Dir("assets"))
 	http.Handle("/assets/", http.StripPrefix("/assets/", fs))
 
+	//js
+	js := http.FileServer(http.Dir("scripts"))
+	http.Handle("/scripts/", http.StripPrefix("/scripts/", js))
+
 	//server
 
 	fmt.Println("Serveur démarré sur le port 8080, http://localhost:8080/")
