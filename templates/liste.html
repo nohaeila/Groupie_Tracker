@@ -23,7 +23,9 @@
                             <option value="Alphabétique">Alphabétique</option>
                             <option value="Date Croissante">Date Croissante</option>
                             <option value="Date Décroissante">Date Décroissante</option>
-                        </select>
+                        </select> 
+                        <br>
+                        <br>    
                         <!-- Option Date -->
                         <label for="date-filter">Date:</label>
                         <select id="date-filter" name="date-filter">
@@ -35,6 +37,21 @@
                             <option value="1970-1980">1970-1980</option>
                             <option value="1960-1970">1960-1970</option>
                             <option value="1950-1960">1950-1960</option>
+                        </select>
+                        <br>
+                        <br>
+                        <!-- Option nombre de membre -->
+                        <label for="member-filter">Nombre de membre:</label>
+                        <select id="member-filter" name="membre-filter"> <!-- Changez member-filter en membre-filter -->
+                            <option value="default" selected>Défaut</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
                         </select>
                         <!-- Boutons Sauvegarder et Réinitialiser -->
                         <div class="button-container">
@@ -67,20 +84,5 @@
         {{end}}
     </div>
 </body>
-<script>
-    function searchArtist() {
-        var input = document.getElementById('search-bar').value.toLowerCase();
-        var artistes = document.querySelectorAll('.artiste');
-
-        artistes.forEach(function (artiste) {
-            var artistName = artiste.getAttribute('data-artist').toLowerCase();
-            if (artistName.includes(input)) {
-                artiste.style.display = '';
-            } else {
-                artiste.style.display = 'none';
-            }
-        });
-    }
-</script>
- 
+<script src="../scripts/search.js"></script>
 </html>
