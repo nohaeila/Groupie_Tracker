@@ -107,7 +107,7 @@ func ListeHandler(w http.ResponseWriter, r *http.Request) {
         artists = filteredArtists
     }
 
-    if membreFilter != "" && membreFilter != "0" {
+    if membreFilter != "" && membreFilter != "default" {
         var filteredArtists []Getters.Artist
         desiredMembreCount, err := strconv.Atoi(membreFilter)
         if err != nil {

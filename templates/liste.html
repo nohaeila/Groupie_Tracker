@@ -65,7 +65,7 @@
         <div class="nav-right">
             <label for="searchToggle" class="round-button"><img src="../assets/images/loupe.png" alt="Rechercher"></label>
             <input type="checkbox" id="searchToggle" class="search-toggle">
-            <input type="text" name="search" class="search-input" id="search-bar"  placeholder="Rechercher..." onkeyup="searchArtist()">
+            <input type="text" name="search" class="search-input" id="search-bar" list="artistes" placeholder="Rechercher..." onkeyup="searchArtist()">
         </div>
     </div>
 
@@ -83,6 +83,11 @@
         </div>
         {{end}}
     </div>
+    <datalist id="artistes">
+        {{range .}}
+        <option value="{{.Name}}">
+        {{end}}
+    </datalist>
 </body>
 <script src="../scripts/search.js"></script>
 </html>
