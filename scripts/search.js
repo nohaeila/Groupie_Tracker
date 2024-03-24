@@ -1,4 +1,4 @@
-function searchArtist() {
+function search() {
     var input = document.getElementById('search-bar').value.toLowerCase();
     var artistes = document.querySelectorAll('.artiste');
 
@@ -11,3 +11,4 @@ function searchArtist() {
         }
     });
 }
+

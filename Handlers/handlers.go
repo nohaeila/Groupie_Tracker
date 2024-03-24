@@ -40,10 +40,21 @@ func ListeHandler(w http.ResponseWriter, r *http.Request) {
         for _, artist := range artists {
             if strings.Contains(strings.ToLower(artist.Name), searchTerm) {
                 filteredArtists = append(filteredArtists, artist)
+            } else {
+                for _, member := range artist.Membre {
+                    memberNameParts := strings.Fields(strings.ToLower(member))
+                    for _, namePart := range memberNameParts {
+                        if strings.Contains(namePart, searchTerm) {
+                            filteredArtists = append(filteredArtists, artist)
+                            break
+                        }
+                    }
+                }
             }
         }
         artists = filteredArtists
     }
+    
 
     switch orderFilter {
     case "Alphabétique":
