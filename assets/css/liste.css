@@ -1,12 +1,13 @@
-/* Masquer la barre de recherche par défaut */
 .search-input {
     display: none;
 }
+
 
 /* Afficher la barre de recherche lorsque le bouton loupe est cliqué */
 #searchToggle:checked + .search-input {
     display: inline-block;
 }
+
 
 /* Style de la barre de navigation */
 .navbar {
@@ -16,11 +17,13 @@
     justify-content: space-between;
 }
 
+
 /* Style de la partie gauche de la barre de navigation */
 .nav-left {
     display: flex;
     align-items: center;
 }
+
 
 /* Style de la partie droite de la barre de navigation */
 .nav-right {
@@ -28,11 +31,19 @@
     align-items: center;
 }
 
+
+.nav-centre {
+    display: flex;
+    align-items: center;
+}
+
+
 .nav-right form {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
+
 
 /* Style du bouton rond */
 .round-button {
@@ -44,6 +55,7 @@
     cursor: pointer;
 }
 
+
 /* Style de l'image à l'intérieur du bouton */
 .round-button img {
     width: 45px; /* Nouvelle largeur de l'icône de recherche */
@@ -52,15 +64,19 @@
 }
 
 
+
+
 .search-icon {
     width: 40px; /* Largeur souhaitée de l'icône */
     height: 40px; /* Hauteur souhaitée de l'icône */
 }
 
+
 /* Style du bouton loupe */
 #searchToggle {
     display: none;
 }
+
 
 /* Style de la barre de recherche */
 .search-input {
@@ -71,6 +87,7 @@
     margin-right: 10px;
 }
 
+
 /* Définition du style du corps de la page */
 body {
     font-family: Arial, sans-serif;
@@ -78,6 +95,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 
 /* Style du titre de niveau 1 */
 h1 {
@@ -88,6 +106,7 @@ h1 {
     /* Effet de texte en néon */
 }
 
+
 /* Conteneur des artistes */
 .artistes-container {
     display: flex;
@@ -96,6 +115,7 @@ h1 {
     max-width: 1200px;
     margin: 0 auto;
 }
+
 
 /* Style de chaque artiste */
 .artiste {
@@ -107,17 +127,20 @@ h1 {
     display: flex;
 }
 
+
 /* Conteneur de l'image */
 .image-container {
     width: 40%;
     margin-right: 20px;
 }
 
+
 /* Image */
 .image-container img {
     max-width: 100%;
     height: auto;
 }
+
 
 /* Informations sur l'artiste */
 .info {
@@ -126,16 +149,19 @@ h1 {
     flex-direction: column;
 }
 
+
 /* Titre */
 .info h2 {
     margin-top: 0;
     margin-bottom: 10px;
 }
 
+
 /* Date */
 .info p {
     margin: 0;
 }
+
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
 * {
@@ -143,6 +169,8 @@ h1 {
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
+
+
 
 
 a {
@@ -161,6 +189,8 @@ a {
 }
 
 
+
+
 a:hover {
     transition-delay: 0s, 1s;
     color: #fff;
@@ -171,6 +201,8 @@ a:hover {
         0 0 80px #0ef,
         0 0 160px #0ef;
 }
+
+
 
 
 a::before {
@@ -187,6 +219,52 @@ a::before {
 }
 
 
+
+
 a:hover:before {
     width: 100%;
+}
+
+
+.filter-options {
+    width: 500px; /* Définir la largeur de la section de filtre */
+    height: 300px; /* Définir la hauteur de la section de filtre */
+    background-color: #f8f8f8; /* Définir la couleur de fond de la section de filtre */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+details > summary {
+    list-style: none; /* Supprimer le marqueur de liste par défaut */
+}
+
+
+details > summary::-webkit-details-marker {
+    display: none; /* Supprimer le marqueur de liste par défaut dans Chrome */
+}
+
+
+#save-button, #reset-button {
+    display: block;
+    width: 45%;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #4CAF50; /* couleur de fond pour le bouton Sauvegarder */
+    color: white; /* couleur du texte pour le bouton Sauvegarder */
+    border: none;
+    cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between; /* cela place les boutons sur la même ligne avec de l'espace entre eux */
+}
+
+
+#reset-button {
+    background-color: #f44336; /* couleur de fond pour le bouton Réinitialiser */
+    color: white; /* couleur du texte pour le bouton Réinitialiser */
 }

@@ -2,18 +2,17 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #cccbcb, #2c2c2c);
 }
-
 .image-container {
   position: relative;
+  width: 30%;
+  height: auto;
+  margin: 0 auto; /* Centre horizontalement */
+  display: flex;
+  flex-direction: column; /* Aligner les éléments verticalement */
+  align-items: center; /* Centre horizontalement */
 }
-
-.background-image {
-  width: 100%;
-  max-height: 400px; /* Réduire la hauteur maximale de l'image */
-  object-fit: cover; /* Ajuster l'image pour couvrir toute la zone */
-}
-
 .text-overlay {
   position: absolute;
   top: 50%;
@@ -22,35 +21,72 @@ body {
   color: #fff;
   text-align: center;
 }
-
 .artist-name {
   position: absolute;
   bottom: 10px; /* Ajuster la position verticale */
   left: 10px; /* Ajuster la position horizontale */
-  color: #171717;
-  font-size: 60px;
+  color: #fff; /* Couleur du nom de l'artiste */
+  font-size: 40px; /* Réduire la taille de la police */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre de texte */
+  transform: translateY(-200%);
 }
-
-.info-container {
+.info-container  {
   background-color: #fff;
   padding: 20px;
   text-align: center;
+  margin-top: 20px; /* Ajouter un espace entre l'image et les informations */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajouter une ombre à la boîte */
+  border-radius: 10px; /* Ajouter des coins arrondis */
 }
-
 .artist-info h1 {
   margin-top: 0;
+  font-size: 24px; /* Réduire la taille de la police */
 }
-
 .artist-info p {
   margin: 10px 0;
+  font-size: 16px; /* Réduire la taille de la police */
 }
-
 .artist-info a {
   color: #000;
+  color: #333; /* Couleur du lien */
   text-decoration: none;
 }
-
 .artist-info a:hover {
   text-decoration: underline;
+}
+.membres ul {
+  list-style-type: none; /* Supprimer les puces */
+  padding: 0; /* Supprimer le remplissage */
+}
+.btn {
+  position: absolute;
+  right: 20px; /* Ajuster la position horizontale */
+  transform: translateY(-80%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem; /* Ajuster la taille du bouton */
+  border-radius: 50%;
+  background-color: #1ED760;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s;
+}
+.btn:hover {
+  transform: translateY(3px);
+  border-radius: 50%;
+  background: linear-gradient(#331029, #310413);
+}
+.tooltip {
+  position: absolute;
+  top: -20px;  /* Aligner le texte en haut du bouton */
+  opacity: 0;
+  transition: opacity 0.7s, transform 0.7s;
+}
+.btn:hover .tooltip {
+  opacity: 1;
+  transform: translateY(0); /* Ajuster la position verticale du texte */
+  color: #4a4a4a;
+  font-size: 0.8rem;
 }
