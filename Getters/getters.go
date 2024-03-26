@@ -19,6 +19,12 @@ type Artist struct {
     SpotifyLink string  `json:"-"`
 }
 
+type SpotifyData struct {
+    ID          int    `json:"id"`
+    SpotifyLink string `json:"spotifyLink"`
+}
+
+
 func (artist *Artist) GetSpotifyLink() {
     spotifyData, err := getSpotifyData()
     if err != nil {
@@ -64,11 +70,6 @@ func GetArtistByID(id string) (Artist, error) {
     }
     artist.GetSpotifyLink()
     return artist, nil
-}
-
-type SpotifyData struct {
-    ID          int    `json:"id"`
-    SpotifyLink string `json:"spotifyLink"`
 }
 
 // Fonction pour lire les données à partir du fichier spotify.json
