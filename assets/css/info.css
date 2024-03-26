@@ -90,3 +90,21 @@ body {
   color: #4a4a4a;
   font-size: 0.8rem;
 }
+.btn1 {
+  background-color: #424542; /* Couleur de fond */
+  border: none; /* Supprimer la bordure */
+  color: white; /* Couleur du texte */
+  padding: 10px 29px; /* Ajouter un rembourrage */
+  text-align: center; /* Centrer le texte */
+  text-decoration: none; /* Supprimer le soulignement du texte */
+  display: inline-block;
+  font-size: 16px; /* Taille de police */
+  margin: 4px 2px; /* Marge externe */
+  transition-duration: 0.4s;
+  cursor: pointer; /* Curseur de souris */
+  border-radius: 8px; /* Coins arrondis */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Ajouter une ombre */
+}
+.btn1:hover {
+  background-color: #7d7e7d; /* Changement de couleur au survol */
+}
