@@ -108,3 +108,8 @@ body {
 .btn1:hover {
   background-color: #7d7e7d; /* Changement de couleur au survol */
 }
+
+#map {
+  height: 730px;
+  width: 100%;
+}
