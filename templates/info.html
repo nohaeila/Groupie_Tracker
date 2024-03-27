@@ -40,6 +40,14 @@
         <button id="voir-plus" class="btn1">Voir plus</button>
         <h2>Date de sortie de leurs premier Albums:</h2>
         <h3>{{.Albums}}</h3>
+        <div class="concerts">
+            <h2>Date et lieu de concert :</h2>
+            <ul>
+                {{range $index, $location := .Location}}
+                    <li>{{$location}} le {{index $.DateConcert $index}}</li>
+                {{end}}
+            </ul>
+        </div>
     </div>
     <div class="center">
         <a href="/liste">Retour à la liste</a>

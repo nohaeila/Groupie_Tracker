@@ -113,3 +113,15 @@ body {
   height: 730px;
   width: 100%;
 }
+
+.concerts ul {
+  list-style-type: none; /* Supprime les puces */
+  padding: 0; /* Supprime le padding */
+  display: inline; /* Affiche les éléments de la liste en ligne */
+}
+
+.concerts ul li {
+  display: block; /* Affiche les éléments de la liste en colonne */
+  margin-bottom: 10px; /* Ajoute un espace entre chaque élément */
+  font-weight: bold; /* Définit le style de la police en gras */
+}
