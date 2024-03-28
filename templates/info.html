@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/info.css">
+    <!-- Lien vers le CSS de Leaflet pour la carte -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
@@ -11,24 +12,28 @@
     <title>Information sur l'artiste</title>
 </head>
 <body>
-    <img src="{{.Image}}" alt="{{.Name}}" class="image-container">
+    <div class="top-page">
+        <!-- Image de l'artiste -->
+        <img src="{{.Image}}" alt="{{.Name}}" class="image-container">
         <div class="artist-name">
+            <!-- Nom de l'artiste -->
             <p><strong>{{.Name}}</strong></p>
         </div>
-            <a href="https://open.spotify.com/intl-fr/artist/{{.SpotifyLink}}" target="_blank">
-                <button class="btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" stroke-width="0" fill="currentColor" stroke="currentColor">
-                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.669 11.538a.498.498 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686zm.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858zm.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288z"></path>
-                    </svg>
-                    <span class="tooltip">Spotify</span>
-                </button>
-            </a>
-        </div>
+        <a href="https://open.spotify.com/intl-fr/artist/{{.SpotifyLink}}" target="_blank">
+            <button class="btn">
+                <!-- Icône Spotify -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" stroke-width="0" fill="currentColor" stroke="currentColor">
+                    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.669 11.538a.498.498 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686zm.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858zm.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288z"></path>
+                </svg>
+                <span class="tooltip">Spotify</span>
+            </button>
+        </a>
     </div>
 <div class="info-container">
+    <!-- Informations sur l'artiste -->
     <div class="artist-info"> 
         <h1>Information sur le groupe ou sur l'artisite</h1>
-        <p><strong>Date:</strong> {{.Date}}</p>
+        <p><strong>Date de Création:</strong> {{.Date}}</p>
         <div class="membres">
             <h2>Membre du groupe :</h2>
             <ul>
@@ -49,19 +54,21 @@
             </ul>
         </div>
     </div>
+    <!-- Bouton pour retourner à la liste des artistes -->
     <div class="center">
-        <a href="/liste">Retour à la liste</a>
+        <a href="/liste" class="btn1" >Retour à la liste</a>
     </div>
 </div>
 
+<!-- Conteneur pour la carte Leaflet -->
 <div id="map" class="leaflet-map"></div>
-
+<!-- Script pour ouvrir la page Wikipedia de l'artiste dans un nouvel onglet lorsque l'on clique sur le bouton "Voir plus" -->
 <script>
     document.getElementById("voir-plus").addEventListener("click", function() {
         window.open("https://fr.wikipedia.org/wiki/{{.Name}}#Membres", "_blank");
     });
 </script>
-
+<!-- Lien vers le JavaScript de Leaflet pour la carte -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin="">

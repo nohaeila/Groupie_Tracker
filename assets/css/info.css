@@ -139,3 +139,9 @@ body {
   margin-bottom: 10px;
   font-weight: bold;
 }
+
+.Name p {
+top: 1.5rem;
+position: relative;
+}
+

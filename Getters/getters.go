@@ -18,7 +18,7 @@ type Artist struct {
     Albums      string   `json:"firstAlbum"`
     DateConcert []string `json:"-"`  
     Location    []string `json:"-"`
-    SpotifyLink string   `json:"-"` // Ces champs ne sont pas directement décodés du JSON
+    SpotifyLink string   `json:"-"`
 }
 
 type LocationData struct {
@@ -42,7 +42,6 @@ func (artist *Artist) GetSpotifyLink() {
     if err != nil {
         return
     }
-
     for _, data := range spotifyData {
         if data.ID == artist.ID {
             artist.SpotifyLink = data.SpotifyLink

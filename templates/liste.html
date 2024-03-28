@@ -4,55 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/liste.css">
-    <title>Liste des artistes</title>
 </head>
 <body>
+    <!-- Barre de navigation -->
     <div class="navbar">
+        <!-- Section gauche de la barre de navigation -->
         <div class="nav-left">
-            <a onclick="window.location.href='/'">Accueil</a>
-        </div>
-        <div class="nav-center">
             <details>
+                <!-- Menu déroulant pour les options de filtrage -->
                 <summary><img src="../assets/images/mdi_filter.svg" alt="Logo"></summary>
                 <div id="filter-options" class="filter-options">
                     <form id="filter-form" action="/liste" method="GET">
                         <!-- Option Ordre -->
-                        <label for="order-filter">Ordre:</label>
-                        <select id="order-filter" name="order-filter">
-                            <option value="default" selected>Défaut</option>
-                            <option value="Alphabétique">Alphabétique</option>
-                            <option value="Date Croissante">Date Croissante</option>
-                            <option value="Date Décroissante">Date Décroissante</option>
-                        </select> 
-                        <br>
-                        <br>    
-                        <!-- Option Date -->
-                        <label for="date-filter">Date:</label>
-                        <select id="date-filter" name="date-filter">
-                            <option value="default" selected>Défaut</option>
-                            <option value="2010-2020">2010-2020</option>
-                            <option value="2000-2010">2000-2010</option>
-                            <option value="1990-2000">1990-2000</option>
-                            <option value="1980-1990">1980-1990</option>
-                            <option value="1970-1980">1970-1980</option>
-                            <option value="1960-1970">1960-1970</option>
-                            <option value="1950-1960">1950-1960</option>
-                        </select>
-                        <br>
-                        <br>
+                        <div class="filter-group">
+                            <label for="order-filter">Ordre:</label>
+                            <select id="order-filter" name="order-filter">
+                                <option value="default" selected>Défaut</option>
+                                <option value="Alphabétique">Alphabétique</option>
+                                <option value="Date Croissante">Date Croissante</option>
+                                <option value="Date Décroissante">Date Décroissante</option>
+                            </select>
+                        </div>
+                        <!-- Option Date de création -->
+                        <div class="filter-group">
+                            <label for="date-filter">Date de Création:</label>
+                            <select id="date-filter" name="date-filter">
+                                <option value="default" selected>Défaut</option>
+                                <option value="2010-2020">2010-2020</option>
+                                <option value="2000-2010">2000-2010</option>
+                                <option value="1990-2000">1990-2000</option>
+                                <option value="1980-1990">1980-1990</option>
+                                <option value="1970-1980">1970-1980</option>
+                                <option value="1960-1970">1960-1970</option>
+                                <option value="1950-1960">1950-1960</option>
+                            </select>
+                        </div>
+                        <!-- Option Date de premier album-->
+                        <div class="filter-group">
+                            <label for="album-filter">Date du Premier Album:</label>
+                            <select id="album-filter" name="album-filter">
+                                <option value="default" selected>Défaut</option>
+                                <option value="2010-2020">2010-2020</option>
+                                <option value="2000-2010">2000-2010</option>
+                                <option value="1990-2000">1990-2000</option>
+                                <option value="1980-1990">1980-1990</option>
+                                <option value="1970-1980">1970-1980</option>
+                                <option value="1960-1970">1960-1970</option>
+                                <option value="1950-1960">1950-1960</option>
+                            </select>
+                        </div>
                         <!-- Option nombre de membre -->
-                        <label for="member-filter">Nombre de membre:</label>
-                        <select id="member-filter" name="membre-filter"> <!-- Changez member-filter en membre-filter -->
-                            <option value="default" selected>Défaut</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                        </select>
+                        <div class="filter-group">
+                            <label for="member-filter">Nombre de membre:</label>
+                            <select id="member-filter" name="membre-filter">
+                                <option value="default" selected>Défaut</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                        </div>
                         <!-- Boutons Sauvegarder et Réinitialiser -->
                         <div class="button-container">
                             <button type="submit" id="save-button" name="action" value="save">Sauvegarder</button>
@@ -61,20 +76,35 @@
                     </form>
                 </div>
             </details>
+            </div>
+        <!-- Section centrale de la barre de navigation -->
+        <div class="nav-center">
+            <h1>Liste des artistes</h1>
         </div>
         <div class="nav-right">
+            <!-- Champ de recherche -->
             <label for="searchToggle" class="round-button"><img src="../assets/images/loupe.png" alt="Rechercher"></label>
             <input type="checkbox" id="searchToggle" class="search-toggle">
             <input type="text" name="search" class="search-input" id="search-bar" list="artistes" placeholder="Rechercher..." onkeyup="search()">
         </div>
     </div>
-
-    <h1>Liste des artistes</h1>
+    <!-- Barre de navigation secondaire -->
+    <div class="second-navbar">
+        <a class="home-button" onclick="window.location.href='/'">Accueil</a> 
+    </div>
+    <!-- Conteneur pour la liste des artistes -->
     <div class="artistes-container">
         {{range .}}
         <div class="artiste" data-artist="{{.Name}};{{.Membre}};{{.Date}};{{.Albums}}">
             <div class="image-container">
-                <td><a href="/info?id={{.ID}}"><img src="{{.Image}}" alt="{{.Name}}"></a></td>
+                <a href="/info?id={{.ID}}">
+                    <div class="vinyl">
+                        <img src="../assets/images/Disque_Vinyl.svg" alt="Vinyl">
+                        <div class="artist-image">
+                            <img src="{{.Image}}" alt="{{.Name}}">
+                        </div>
+                    </div>
+                </a>
             </div>
             <div class="info">
                 <h2>{{.Name}}</h2>
@@ -84,6 +114,7 @@
         {{end}}
     </div>
     <datalist id="artistes">
+        <!-- Boucle pour ajouter chaque artiste à la liste de recherche -->
         {{range .}}
         <option value="{{.Name}}"> nom</option>
         <option value="{{.Date}}"> Date de Création </option>
@@ -93,6 +124,8 @@
         {{end}}
         {{end}}
     </datalist>
+
 </body>
+<!-- Lien vers le fichier JavaScript pour la fonction de recherche -->
 <script src="../scripts/search.js"></script>
 </html>
