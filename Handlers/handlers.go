@@ -9,8 +9,10 @@ import (
     "sort"
 )
 
+// Préparation des templates HTML
 var templates = template.Must(template.ParseGlob("templates/*.html"))
 
+// Handler pour la page d'accueil
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
     err := templates.ExecuteTemplate(w, "accueil.html", nil)
     if err != nil {
@@ -19,7 +21,9 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
     }
 }
 
+// Handler pour la page de liste des artistes
 func ListeHandler(w http.ResponseWriter, r *http.Request) {
+    // Récupération des filtres de la requête
     searchTerm := r.URL.Query().Get("search")
     orderFilter := r.URL.Query().Get("order-filter")
     dateFilter := r.URL.Query().Get("date-filter")
@@ -28,12 +32,14 @@ func ListeHandler(w http.ResponseWriter, r *http.Request) {
     }
     membreFilter := r.URL.Query().Get("membre-filter")
 
+    // Récupération des artistes
     artists, err := Getters.GetArtists()
     if err != nil {
         http.Error(w, err.Error(), http.StatusInternalServerError)
         return
     }
 
+    // Filtrage des artistes par terme de recherche
     if searchTerm != "" {
         searchTerm = strings.ToLower(searchTerm)
         var filteredArtists []Getters.Artist
@@ -54,8 +60,8 @@ func ListeHandler(w http.ResponseWriter, r *http.Request) {
         }
         artists = filteredArtists
     }
-    
 
+    // Tri des artistes par filtre d'ordre
     switch orderFilter {
     case "Alphabétique":
         sort.Slice(artists, func(i, j int) bool {
@@ -71,6 +77,7 @@ func ListeHandler(w http.ResponseWriter, r *http.Request) {
         })
     }
 
+    // Filtrage des artistes par date
     if dateFilter != "default" {
         var filteredArtists []Getters.Artist
         for _, artist := range artists {
@@ -84,6 +91,7 @@ func ListeHandler(w http.ResponseWriter, r *http.Request) {
                 return
             }
 
+            // Filtrage par décennie
             switch dateFilter {
             case "2010-2020":
                 if artistYear >= 2010 && artistYear <= 2020 {
@@ -118,6 +126,7 @@ func ListeHandler(w http.ResponseWriter, r *http.Request) {
         artists = filteredArtists
     }
 
+    // Filtrage des artistes par nombre de membres
     if membreFilter != "" && membreFilter != "default" {
         var filteredArtists []Getters.Artist
         desiredMembreCount, err := strconv.Atoi(membreFilter)
@@ -133,20 +142,24 @@ func ListeHandler(w http.ResponseWriter, r *http.Request) {
         artists = filteredArtists
     }
 
+    // Affichage de la page de liste avec les artistes filtrés
     err = templates.ExecuteTemplate(w, "liste.html", artists)
     if err != nil {
         http.Error(w, err.Error(), http.StatusInternalServerError)
     }
 }
 
+// Handler pour la page d'information sur un artiste
 func InfoHandler(w http.ResponseWriter, r *http.Request) {
     id := r.URL.Query().Get("id")
 
+    // Récupération de l'artiste par son ID
     artist, err := Getters.GetArtistByID(id)
     if err != nil {
         http.Error(w, err.Error(), http.StatusInternalServerError)
         return
     }
+    // Affichage de la page d'information avec les détails de l'artiste
     err = templates.ExecuteTemplate(w, "info.html", artist)
     if err != nil {
         http.Error(w, err.Error(), http.StatusInternalServerError)

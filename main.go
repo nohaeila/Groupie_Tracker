@@ -4,8 +4,8 @@ import (
 	"GROUPIE-TRACKER/Handlers"
 	"fmt"
 	"net/http"
-	
 )
+
 
 func main() {
 	//template
@@ -22,7 +22,6 @@ func main() {
 	http.Handle("/scripts/", http.StripPrefix("/scripts/", js))
 
 	//server
-
 	fmt.Println("Serveur démarré sur le port 8080, http://localhost:8080/")
 	http.ListenAndServe(":8080", nil)
 

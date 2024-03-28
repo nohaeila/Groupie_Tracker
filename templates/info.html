@@ -42,7 +42,7 @@
         <h3>{{.Albums}}</h3>
         <div class="concerts">
             <h2>Date et lieu de concert :</h2>
-            <ul>
+            <ul class="location-container">
                 {{range $index, $location := .Location}}
                     <li>{{$location}} le {{index $.DateConcert $index}}</li>
                 {{end}}
@@ -54,7 +54,7 @@
     </div>
 </div>
 
-<div id="map"></div>
+<div id="map" class="leaflet-map"></div>
 
 <script>
     document.getElementById("voir-plus").addEventListener("click", function() {
@@ -68,7 +68,6 @@
 </script>
 
 <script src="../scripts/geomap.js"></script>
-
 
 </body>
 </html>   

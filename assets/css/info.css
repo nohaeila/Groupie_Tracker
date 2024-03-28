@@ -4,15 +4,17 @@ body {
   font-family: Arial, sans-serif;
   background: linear-gradient(to bottom, #cccbcb, #2c2c2c);
 }
+
 .image-container {
   position: relative;
   width: 30%;
   height: auto;
-  margin: 0 auto; /* Centre horizontalement */
+  margin: 0 auto;
   display: flex;
-  flex-direction: column; /* Aligner les éléments verticalement */
-  align-items: center; /* Centre horizontalement */
+  flex-direction: column;
+  align-items: center;
 }
+
 .text-overlay {
   position: absolute;
   top: 50%;
@@ -21,51 +23,58 @@ body {
   color: #fff;
   text-align: center;
 }
+
 .artist-name {
   position: absolute;
-  bottom: 10px; /* Ajuster la position verticale */
-  left: 10px; /* Ajuster la position horizontale */
-  color: #fff; /* Couleur du nom de l'artiste */
-  font-size: 40px; /* Réduire la taille de la police */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre de texte */
+  bottom: 10px;
+  left: 10px;
+  color: #fff;
+  font-size: 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   transform: translateY(-200%);
 }
+
 .info-container  {
   background-color: #fff;
   padding: 20px;
   text-align: center;
-  margin-top: 20px; /* Ajouter un espace entre l'image et les informations */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajouter une ombre à la boîte */
-  border-radius: 10px; /* Ajouter des coins arrondis */
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
+
 .artist-info h1 {
   margin-top: 0;
-  font-size: 24px; /* Réduire la taille de la police */
+  font-size: 24px;
 }
+
 .artist-info p {
   margin: 10px 0;
-  font-size: 16px; /* Réduire la taille de la police */
+  font-size: 16px;
 }
+
 .artist-info a {
-  color: #000;
-  color: #333; /* Couleur du lien */
+  color: #333;
   text-decoration: none;
 }
+
 .artist-info a:hover {
   text-decoration: underline;
 }
+
 .membres ul {
-  list-style-type: none; /* Supprimer les puces */
-  padding: 0; /* Supprimer le remplissage */
+  list-style-type: none;
+  padding: 0;
 }
+
 .btn {
   position: absolute;
-  right: 20px; /* Ajuster la position horizontale */
+  right: 20px;
   transform: translateY(-80%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem; /* Ajuster la taille du bouton */
+  padding: 1.5rem;
   border-radius: 50%;
   background-color: #1ED760;
   color: white;
@@ -73,40 +82,45 @@ body {
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.2);
   transition: all 0.5s;
 }
+
 .btn:hover {
   transform: translateY(3px);
   border-radius: 50%;
   background: linear-gradient(#331029, #310413);
 }
+
 .tooltip {
   position: absolute;
-  top: -20px;  /* Aligner le texte en haut du bouton */
+  top: -20px;
   opacity: 0;
   transition: opacity 0.7s, transform 0.7s;
 }
+
 .btn:hover .tooltip {
   opacity: 1;
-  transform: translateY(0); /* Ajuster la position verticale du texte */
+  transform: translateY(0);
   color: #4a4a4a;
   font-size: 0.8rem;
 }
+
 .btn1 {
-  background-color: #424542; /* Couleur de fond */
-  border: none; /* Supprimer la bordure */
-  color: white; /* Couleur du texte */
-  padding: 10px 29px; /* Ajouter un rembourrage */
-  text-align: center; /* Centrer le texte */
-  text-decoration: none; /* Supprimer le soulignement du texte */
+  background-color: #424542;
+  border: none;
+  color: white;
+  padding: 10px 29px;
+  text-align: center;
+  text-decoration: none;
   display: inline-block;
-  font-size: 16px; /* Taille de police */
-  margin: 4px 2px; /* Marge externe */
+  font-size: 16px;
+  margin: 4px 2px;
   transition-duration: 0.4s;
-  cursor: pointer; /* Curseur de souris */
-  border-radius: 8px; /* Coins arrondis */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Ajouter une ombre */
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+
 .btn1:hover {
-  background-color: #7d7e7d; /* Changement de couleur au survol */
+  background-color: #7d7e7d;
 }
 
 #map {
@@ -115,13 +129,13 @@ body {
 }
 
 .concerts ul {
-  list-style-type: none; /* Supprime les puces */
-  padding: 0; /* Supprime le padding */
-  display: inline; /* Affiche les éléments de la liste en ligne */
+  list-style-type: none;
+  padding: 0;
+  display: inline;
 }
 
 .concerts ul li {
-  display: block; /* Affiche les éléments de la liste en colonne */
-  margin-bottom: 10px; /* Ajoute un espace entre chaque élément */
-  font-weight: bold; /* Définit le style de la police en gras */
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
